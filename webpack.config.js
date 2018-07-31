@@ -39,7 +39,7 @@ module.exports = {
     },
     plugins:[
         new DtsBundlePlugin({
-            name: "typescript-npm-module",
+            name: "@psykosoldi3r/typescript-npm-module",
             main: path.resolve( __dirname, "./dist/**/*.d.ts"),
             out: path.resolve( __dirname, "./dist/index.d.ts"),
             removeSource: true
