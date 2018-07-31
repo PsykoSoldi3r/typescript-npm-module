@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "removeComments": true,
+        "sourceMap":true,
+        "outDir": "dist",
+        "declaration": true,
+        "declarationDir": "./",
+        "declarationMap": false
+    },
+    "include": [
+        "./"
+    ],
+    "exclude": [
+        "./src/__test__"
+    ]
+}
