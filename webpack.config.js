@@ -2,9 +2,9 @@ const path = require("path");
 const DtsBundlePlugin = require("webpack-dts-bundle").default;
 
 module.exports = {
-    entry: "./index.ts",
+    entry: "./src/index.ts",
     output: {
-        filename: "Broadcast.js",
+        filename: "index.js",
         path: path.resolve( __dirname, "dist" ),
     },
     resolve: {
@@ -17,7 +17,10 @@ module.exports = {
     module:{
         rules:[{
             test: /\.ts?/,
-            exclude: /node_modules/,
+            exclude: [
+                /node_modules/,
+                path.resolve( __dirname, "src/__test__/")
+            ],
             enforce: "pre",
             use: {
                 loader: "tslint-loader",
@@ -28,15 +31,17 @@ module.exports = {
         },{
             test: /\.ts?/,
             loader: "ts-loader",
-            exclude: /node_modules/
+            exclude: [
+                /node_modules/,
+                path.resolve( __dirname, "src/__test__/")
+            ]
         }]
     },
     plugins:[
         new DtsBundlePlugin({
-            name: "Broadcast",
+            name: "typescript-npm-module",
             main: path.resolve( __dirname, "./dist/**/*.d.ts"),
-            out: path.resolve( __dirname, "./index.d.ts"),
-            verbose: true,
+            out: path.resolve( __dirname, "./dist/index.d.ts"),
             removeSource: true
         })
     ]
